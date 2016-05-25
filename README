@@ -82,6 +82,9 @@ Setup
    
    "ABC123-001-201603","12345","Johnny Student","johnny.student.fake@ucdavis.edu"
    
+   This script also contains a term specific line such as "S16". Be sure to edit
+   it to the appropriate term.
+   
    Again, you can run the script like so:
    
    ruby ./make_students_in_groups.rb the_student_file.csv
