@@ -11,7 +11,8 @@ with 'boxr' version 1.1.0.
 
 Setup
 -----
-1. Ensure you have Ruby and the popular Ruby utility 'bundler' installed.
+1. Ensure you have Ruby and the popular Ruby utility 'bundler' installed. Use
+  them to install the dependencies.
 
   $ ruby -v
   
@@ -22,6 +23,21 @@ Setup
     Bundler version 1.11.2
 
   If you do not have bundler, try 'gem install bundler'.
+  
+  Once Bundler is working, it can install the needed dependencies for this
+  script, e.g.:
+  
+  $ cd the_project_folder && bundle install
+  
+    Using addressable 2.4.0
+    Using hashie 3.4.4
+    Using httpclient 2.8.0
+    Using jwt 1.5.4
+    Using oj 2.15.0
+    Using bundler 1.11.2
+    Using boxr 1.1.0
+    Bundle complete! 1 Gemfile dependency, 7 gems now installed.
+    Use `bundle show [gemname]` to see where a bundled gem is installed.
 
 2. Obtain your Box.com OAuth2 information. Documentation at
   https://docs.box.com/docs/oauth-20. Remember your client ID and
