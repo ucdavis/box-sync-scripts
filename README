@@ -15,20 +15,20 @@ Setup
   them to install the dependencies.
 
   $ ruby -v
-  
+
     ruby 2.3.1p112 (2016-04-26 revision 54768) [x86_64-darwin15]
 
   $ bundle -v
-  
+
     Bundler version 1.11.2
 
   If you do not have bundler, try 'gem install bundler'.
-  
+
   Once Bundler is working, it can install the needed dependencies for this
   script, e.g.:
-  
+
   $ cd the_project_folder && bundle install
-  
+
     Using addressable 2.4.0
     Using hashie 3.4.4
     Using httpclient 2.8.0
@@ -50,44 +50,44 @@ Setup
 
 4. Still within the 30 second window, hit this URL using curl:
   curl https://api.box.com/oauth2/token -d 'grant_type=authorization_code&code=THE_CODE_YOU_RECEIVED&client_id=YOUR_CLIENT_ID&client_secret=YOUR_CLIENT_SECRET' -X POST
-   
+
    and you should receive a response like:
-   
+
    {"access_token":"something","expires_in":3664,"restricted_to":[],"refresh_token":"something_else","token_type":"bearer"}
-   
- 5. Edit the file credentials.yml and fill in your client ID, client secret,
+
+ 5. Copy credentials.example.yml to credentials.yml and edit it to fill in your client ID, client secret,
    as well as the access token and refresh token you received in the JSON from
    step 4.
- 
+
  6. Run the make_groups_with_instructors.rb first. Ensure your CSV is in the correct
    format, e.g.
-   
+
    "FACULTY_NAME", "FACULTY_EMAIL", "COURSE", "CRN"
    "John Smith","john.smith.fake@ucdavis.edu","ABC 123 001","12345"
-   
+
    Note that the first line (the "header") should not be present in the CSV file.
-   
+
    Note that the script creates groups with "-S16" at the end. You will need to
    edit the script to change the term. As of this writing, it is on line 66.
-   
+
    The script itself can be run like so:
-   
+
    ruby ./make_groups_with_instructors.rb the_file.csv
-   
+
  7. Run the make_students_in_groups.rb script. Note it has a slightly different
    CSV format and you may need to repeat steps 3-4 to update your access and refresh
    tokens.
-   
+
    The CSV format is:
-   
+
    "ABC123-001-201603","12345","Johnny Student","johnny.student.fake@ucdavis.edu"
-   
+
    This script also contains a term specific line such as "S16". Be sure to edit
    it to the appropriate term.
-   
+
    Again, you can run the script like so:
-   
+
    ruby ./make_students_in_groups.rb the_student_file.csv
- 
+
  In 2016, the faculty CSV was 4069 lines and took under two hours to complete.
  The student CSV was 119684 lines and took around 11 hours to complete.
